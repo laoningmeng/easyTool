@@ -76,6 +76,10 @@ func (c *Code) getCodeTotal(name, start, end string) {
 		add = add + convert(res[0])
 		remove = remove + convert(res[1])
 	}
+<<<<<<< HEAD
 	fmt.Printf("\u001B[33;1m 用户:%s \u001B[34;1m 新增:%d 行, \u001B[31;1m 删除:%d 行, \u001B[36;1m 共计: %d 行 \u001B[0m \n", name, add, remove, add-remove)
+=======
+	fmt.Printf("\u001B[34;1m 新增:%d 行, \u001B[31;1m 删除:%d 行, \u001B[36;1m 共计: %d 行 \u001B[0m", add, remove, add-remove)
+>>>>>>> fcb6ba0b9a5c34164411d7b56c5098440838c9bf
 
 }
