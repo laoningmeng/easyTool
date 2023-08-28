@@ -1,4 +1,4 @@
-<img src="./asset/logo.jpg" alt="logo" style="zoom: 20%;" />
+<img src="./asset/logo.jpg" alt="logo"  />
 
 
 
