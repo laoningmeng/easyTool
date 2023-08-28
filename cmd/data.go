@@ -1,6 +1,5 @@
 /*
 Copyright © 2023 NAME HERE <EMAIL ADDRESS>
-
 */
 package cmd
 
@@ -13,7 +12,7 @@ import (
 // dataCmd represents the data command
 var dataCmd = &cobra.Command{
 	Use:   "data",
-	Short: "A brief description of your command",
+	Short: "mysql通过配置文件生成测试数据",
 	Long: `A longer description that spans multiple lines and likely contains examples
 and usage of using your command. For example:
 

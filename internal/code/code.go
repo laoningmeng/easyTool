@@ -32,7 +32,7 @@ func (c *Code) getGitAuthor() (string, error) {
 // 根据用户名时间段统计
 
 func (c *Code) getCodeTotal(name, start, end string) {
-	if name == "" {
+	if len(name) == 0 {
 		var err error
 		name, err = c.getGitAuthor()
 		if err != nil {
@@ -47,6 +47,7 @@ func (c *Code) getCodeTotal(name, start, end string) {
 	if end == "" {
 		end = time.Date(currentTime.Year(), currentTime.Month(), currentTime.Day(), 23, 59, 59, 0, currentTime.Location()).Format("2006-01-02 15:04:05")
 	}
+	fmt.Println("start:", start, "end:", end)
 
 	cmd := exec.Command("git", "log", "--author="+name, "--since="+start, "--until="+end, "--pretty=tformat:", "--numstat")
 	output, err := cmd.Output()

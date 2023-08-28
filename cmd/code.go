@@ -4,6 +4,7 @@ Copyright © 2023 NAME HERE <EMAIL ADDRESS>
 package cmd
 
 import (
+	"fmt"
 	"github.com/laoningmeng/fusion/internal/code"
 	"github.com/spf13/cobra"
 )
@@ -19,6 +20,7 @@ var codeCmd = &cobra.Command{
 	Long:  `统计代码量的工具`,
 	Run: func(cmd *cobra.Command, args []string) {
 		c := code.Code{}
+		fmt.Println("auth:", author, "start", startDate, "end:", endDate)
 		c.Run(author, startDate, endDate)
 	},
 }
