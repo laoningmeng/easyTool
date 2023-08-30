@@ -29,8 +29,8 @@ func init() {
 	rootCmd.AddCommand(codeCmd)
 
 	codeCmd.Flags().StringVarP(&author, "author", "a", "", "git用户名字")
-	codeCmd.Flags().StringVarP(&author, "start", "s", "", "根据时间区间统计代码量-开始时间")
-	codeCmd.Flags().StringVarP(&author, "end", "e", "", "根据时间区间统计代码量-结束时间")
+	codeCmd.Flags().StringVarP(&startDate, "start", "s", "", "根据时间区间统计代码量-开始时间")
+	codeCmd.Flags().StringVarP(&endDate, "end", "e", "", "根据时间区间统计代码量-结束时间")
 
 	// Here you will define your flags and configuration settings.
 
