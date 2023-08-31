@@ -1,16 +1,16 @@
 data:
   mysql:
     host: 127.0.0.1
-    user: root
+    username: root
     password: 123456
-    database: paas
+    db: paas
     port: 3306
   tables:
     user:
-      _number: 100000
-      name: name
-      age: number-0-100
-      gender: number-0-1
-    city:
-      _number: 2000
-      name: city
+      _number: 100
+#      name: Name
+#      age: Number-0-100
+      gender: Number-0-1
+#    city:
+#      _number: 200
+#      name: City

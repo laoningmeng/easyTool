@@ -11,7 +11,9 @@ type FakeIt struct {
 }
 
 func NewFakeIt() *FakeIt {
-	return &FakeIt{}
+	return &FakeIt{
+		gofakeit.New(0),
+	}
 }
 
 func (f *FakeIt) invoke(method string, args ...interface{}) (res any, err error) {

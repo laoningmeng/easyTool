@@ -17,7 +17,7 @@ var dataCmd = &cobra.Command{
 	Long:  `数据库插入模拟数据的工具`,
 	Run: func(cmd *cobra.Command, args []string) {
 		f := data.NewMysqlFaker()
-		f.Parse("data.yml")
+		f.Run(path)
 	},
 }
 
