@@ -26,6 +26,7 @@
 
 设置完毕命令行输入
 
+
 ```shell
 fusion 
 ```
@@ -50,17 +51,21 @@ fusion
 
 ### 3.1  统计代码量
 
+
 ```shell
 fusion code
 ```
 输出:
 ![img.png](asset/img.png)
 
+
 ### 3.2 生成mysql测试数据
+
 
 这里的数据源是融合的是 `brianvoe/gofakeit` 
 使用：
 首先创建mysql 连接和表结构的配置文件
+
 
 ```yaml
 data:
@@ -89,7 +94,9 @@ fusion data  -c data.yml -s 1000
 * `-c` 指定配置文件路径
 * `-s` 指定批量插入时的数量, 默认100
 
+
 ### 3.3  codegen 异常码生成工具
+
 
 这里融合的是`marmotedu/iam` 项目的tools里的其中的codegen
 
@@ -124,7 +131,9 @@ const (
 go generate code.go
 ```
 
+
 ### 3.4  常用工具箱
+
 
 开发中常用一些时间转化，json格式化，加解密的功能，这里融合的是
 `CorentinTh/it-tools` 
