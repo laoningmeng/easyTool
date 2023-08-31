@@ -131,9 +131,9 @@ func NewMysqlFaker() MysqlFaker {
 	return MysqlFaker{Data: data}
 }
 
-func (m *MysqlFaker) Run(path string) {
+func (m *MysqlFaker) Run(path string, size int) {
 	m.conf = path
-	m.size = 10
+	m.size = size
 	m.setTables()
 	m.Parse()
 }
