@@ -8,9 +8,9 @@ data:
   tables:
     user:
       _number: 100
-#      name: Name
-#      age: Number-0-100
+      name: Name
+      age: Number-0-100
       gender: Number-0-1
-#    city:
-#      _number: 200
-#      name: City
+    city:
+      _number: 200
+      name: City
