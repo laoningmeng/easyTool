@@ -163,5 +163,5 @@ fusion redis -host 127.0.0.1 -port=6379 --pass=xxx db=0
 fusion redis
 ```
 
-
+![img.png](asset/img-redis.png)
 
