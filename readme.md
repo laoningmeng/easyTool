@@ -47,6 +47,8 @@ fusion
 
 * `tools` 开发常用工具箱
 
+* `redis` redis-cli 工具
+
   
 
 ### 3.1  统计代码量
@@ -148,6 +150,18 @@ fusion tools -p 8090
 ```
 
 ![img.png](asset/tools.png)
+
+
+### 3.5 redis-cli
+ 一个简单的redis 命令行工具
+```shell
+fusion redis -host 127.0.0.1 -port=6379 --pass=xxx db=0
+```
+因为设置了默认值，如果redis 没有账号密码，host是127.0.0.1， port 6379
+可以直接运行
+```shell
+fusion redis
+```
 
 
 
