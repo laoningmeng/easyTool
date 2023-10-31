@@ -1,6 +1,7 @@
 package bpm
 
 import (
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
@@ -8,17 +9,24 @@ import (
 type Settings struct {
 }
 
-type SettingItem struct {
-	ID       int64  `json:"id,omitempty"`
-	Name     string `json:"name,omitempty"`
-	FormKey  string `json:"form_key,omitempty"`
-	AppId    string `json:"app_id,omitempty"`
-	DataCode string `json:"data_code,omitempty"`
-	Fields   string `json:"fields,omitempty"`
+type SettingRequest struct {
+	Name     string  `json:"name"`
+	FormKey  string  `json:"form_key"`
+	AppId    string  `json:"app_id"`
+	DataCode string  `json:"data_code"`
+	Fields   []Field `json:"fields"`
+}
+
+type Field struct {
+	Title string `json:"title"`
+	Name  string `json:"name"`
 }
 
 func (s *Settings) Add(c *gin.Context) {
-
+	var param SettingRequest
+	if errA := c.ShouldBind(&param); errA == nil {
+		fmt.Println(param)
+	}
 }
 
 func (s *Settings) Update(c *gin.Context) {
@@ -26,7 +34,7 @@ func (s *Settings) Update(c *gin.Context) {
 }
 
 func (s *Settings) List(c *gin.Context) {
-
+	//
 }
 
 func (s *Settings) Del(c *gin.Context) {

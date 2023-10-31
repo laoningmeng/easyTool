@@ -8,7 +8,3 @@ type BpmSettings struct {
 	DataCode string
 	Fields   string
 }
-
-func (b BpmSettings) List() {
-
-}

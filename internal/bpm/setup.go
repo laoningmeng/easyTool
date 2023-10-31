@@ -3,19 +3,26 @@ package bpm
 import (
 	"fmt"
 	"github.com/laoningmeng/fusion/internal/bpm/app/model"
+	"github.com/laoningmeng/fusion/internal/bpm/global"
 	router2 "github.com/laoningmeng/fusion/internal/bpm/router"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
+	"net"
 	"net/http"
 	"os"
 	"time"
 )
 
 type BpmServer struct {
-	port int32
+	port int
 }
 
-func NewBpmServer(port int32) *BpmServer {
+func init() {
+	db, _ := gorm.Open(sqlite.Open("gorm.db"), &gorm.Config{})
+	global.DB = db
+}
+
+func NewBpmServer(port int) *BpmServer {
 	return &BpmServer{port: port}
 }
 func (bpm *BpmServer) boot() {
@@ -28,19 +35,38 @@ func (bpm *BpmServer) boot() {
 		if err != nil {
 			panic(err)
 		}
-		db, _ := gorm.Open(sqlite.Open("gorm.db"), &gorm.Config{})
-		db.AutoMigrate(&model.BpmSettings{})
+		global.DB.AutoMigrate(&model.BpmSettings{})
 	}
 }
 
 func (bpm BpmServer) Start() {
 	router := router2.NewRouter()
+	var port int
+	if bpm.port == 0 {
+		port, _ = bpm.getPort()
+	} else {
+		port = bpm.port
+	}
 	s := &http.Server{
-		Addr:           fmt.Sprintf(":%d", bpm.port),
+		Addr:           fmt.Sprintf(":%d", port),
 		Handler:        router,
 		ReadTimeout:    10 * time.Second,
 		WriteTimeout:   10 * time.Second,
 		MaxHeaderBytes: 1 << 20,
 	}
+	fmt.Println("Port:", port)
 	s.ListenAndServe()
+}
+
+func (s *BpmServer) getPort() (int, error) {
+	addr, err := net.ResolveTCPAddr("tcp", "localhost:0")
+	if err != nil {
+		return 0, err
+	}
+	l, err := net.ListenTCP("tcp", addr)
+	if err != nil {
+		return 0, err
+	}
+	defer l.Close()
+	return l.Addr().(*net.TCPAddr).Port, nil
 }
