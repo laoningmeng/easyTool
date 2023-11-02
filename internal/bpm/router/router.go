@@ -13,7 +13,7 @@ func NewRouter() *gin.Engine {
 		router.POST("/bpm/setting/add", setting.Add)
 		router.POST("/bpm/setting/update", setting.Update)
 		router.GET("/bpm/setting/del", setting.Del)
-		router.GET("/bpm/setting/list", setting.Add)
+		router.GET("/bpm/setting/list", setting.List)
 
 		router.POST("/bpm/record/add", record.Add)
 		router.POST("/bpm/record/update", record.Update)

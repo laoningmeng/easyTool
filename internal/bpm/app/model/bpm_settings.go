@@ -1,10 +1,14 @@
 package model
 
+import "time"
+
 type BpmSettings struct {
-	ID       int64
-	Name     string
-	FormKey  string
-	AppId    string
-	DataCode string
-	Fields   string
+	Uuid      string
+	Name      string
+	FormKey   string
+	AppId     string
+	DataCode  string
+	Fields    string
+	CreatedAt time.Time
+	UpdatedAt time.Time
 }
